@@ -22,6 +22,7 @@ return {
 }
 }
 
+//Used ChatGPT to come up with some placeholder responses
 export const responses = [
     "That's interesting! Tell me more.",
     "I didn't know that. Thanks for sharing!",

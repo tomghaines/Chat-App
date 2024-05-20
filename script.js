@@ -82,3 +82,11 @@ function newChatTwo(incomingMessage) {
 }
 
 submitBtn.addEventListener('click', sendMessage)
+
+// Used ChatGPT to help understand & implement the 'keydown' event listener & keyCode 13
+inputEl.addEventListener('keydown', function(e){
+    if(e.keyCode === 13){
+        e.preventDefault()
+        sendMessage()
+    }
+})
