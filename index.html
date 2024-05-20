@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chat App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" type="module" defer></script>
+  </head>
+  <body id="container" class="container">
+    <div id="sidebar" class="sidebar">
+      <div id="logo-wrapper">
+        <img
+          src="./resources/Logo.svg"
+          alt="small blue logo displayed at top left"
+        />
+      </div>
+    </div>
+    <div class="user-info" id="user-info">
+      <h3 id="user-name">Danny</h3>
+    </div>
+    <section id="chat-display" class="chat-display"></section>
+    <div id="input-wrapper" class="input-wrapper">
+      <label for="text-input"></label>
+      <input
+        id="text-input"
+        class="text-input"
+        name="text-input"
+        type="textarea"
+        placeholder="Start typing..."
+        required
+        autocomplete="off"
+      />
+      <label for="submit-btn"></label>
+      <button
+        id="submit-btn"
+        class="submit-btn"
+        name="submit-btn"
+        type="submit"
+      >
+        Send
+      </button>
+    </div>
+  </body>
+</html>
