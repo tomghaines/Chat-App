@@ -1,8 +1,13 @@
 import { getDate, responses } from "./data.js"
 
-const inputEl = document.getElementById('text-input')
-const submitBtn = document.getElementById('submit-btn')
-const chatField = document.getElementById('chat-display')
+// New JQuery
+const $inputEl = $('#text-input')
+const $submitBtn = $('#submit-btn')
+const $chatField = $('#chat-display')
+
+// const inputEl = document.getElementById('text-input')
+// const submitBtn = document.getElementById('submit-btn')
+// const chatField = document.getElementById('chat-display')
 
 function getReply() {
     let reply = ''
@@ -27,8 +32,12 @@ function receiveMessage() {
         displayTime: displayTime
     }
 
-    chatField.innerHTML += newChatTwo(incomingMessage)
-    chatField.scrollTop = chatField.scrollHeight
+    // New JQuery
+    $chatField.html($chatField.html() + newChatTwo(incomingMessage))
+    $chatField.scrollTop($chatField.prop('scrollHeight'))
+
+    // chatField.innerHTML += newChatTwo(incomingMessage)
+    // chatField.scrollTop = chatField.scrollHeight
 }
 
 function sendMessage() {
@@ -38,21 +47,26 @@ function sendMessage() {
     let displayDate = currentDate.displayDate
     let displayTime = currentDate.displayTime
 
-    if(inputEl.value === '') {
+    if($inputEl.val() === '') {
         return
     }
 
     const outgoingMessage = {
         sender: 'You',
-        message: inputEl.value,
+        message: $inputEl.val(),
         displayDate: displayDate,
         displayTime: displayTime
     }
 
-    chatField.innerHTML += newChat(outgoingMessage)
-    chatField.scrollTop = chatField.scrollHeight
+    // New JQuery
+    $chatField.html($chatField.html() + newChat(outgoingMessage))
+    $chatField.scrollTop($chatField.prop('scrollHeight'))
 
-    inputEl.value = ''
+    // chatField.innerHTML += newChat(outgoingMessage)
+    // chatField.scrollTop = chatField.scrollHeight
+    
+    // New JQuery
+    $inputEl.val('')
 
     setTimeout(receiveMessage, 1000)
 }
@@ -81,12 +95,24 @@ function newChatTwo(incomingMessage) {
         </div>`
 }
 
-submitBtn.addEventListener('click', sendMessage)
+// New JQuery
+$submitBtn.on('click', sendMessage)
 
-// Used ChatGPT to help understand & implement the 'keydown' event listener & keyCode 13
-inputEl.addEventListener('keydown', function(e){
+// submitBtn.addEventListener('click', sendMessage)
+
+
+// New JQuery
+$inputEl.on('keydown', function(e){
     if(e.keyCode === 13){
         e.preventDefault()
         sendMessage()
     }
 })
+
+// Used ChatGPT to help understand & implement the 'keydown' event listener & keyCode 13
+/* inputEl.addEventListener('keydown', function(e){
+    if(e.keyCode === 13){
+        e.preventDefault()
+        sendMessage()
+    }
+}) */
